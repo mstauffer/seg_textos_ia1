@@ -52,6 +52,7 @@ class IOBTransformer():
                 tup_entidade = (self.tokenizer.tokenize(texto_ent), iob_entidade)
             else:
                 tup_entidade = (word_tokenize(texto_ent), iob_entidade)
+            
             return tup_entidade
         
         def _match_iob_texto_ato(texto_entidade_tok, iob_ato):
@@ -103,7 +104,7 @@ class IOBTransformer():
                         texto_entidade_tok = self.tokenizer.tokenize(texto_entidade)
                     else:
                         texto_entidade_tok = word_tokenize(texto_entidade)
-                    if tipo_entidade.isupper():
+                    if tipo_entidade.istitle():
                         texto_ato = texto_entidade_tok
                         texto_ato_iob = _match_iob_texto_ato(texto_entidade_tok, iob_ato)
                 texto_ato_iob = _inclui_tags_vazias(texto_ato_iob)
