@@ -93,7 +93,7 @@ class IOBTransformer():
                         texto_entidade_tok = self.tokenizer.tokenize(texto_entidade)
                     else:
                         texto_entidade_tok = word_tokenize(texto_entidade)
-                    if not tipo_entidade.isupper():
+                    if not tipo_entidade.istitle():
                         tup_entidade = _constroi_iob(texto_entidade, tipo_entidade)
                         iob_ato.append(tup_entidade)
                 # anotação do ato inteiro
